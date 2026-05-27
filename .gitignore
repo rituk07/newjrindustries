@@ -1,0 +1,18 @@
+# Vercel
+.vercel
+.env*
+.env.local
+
+# Dependencies — never push these (huge folder)
+node_modules/
+
+# Next.js build output — auto-generated on every deploy
+.next/
+out/
+
+# TypeScript build cache
+tsconfig.tsbuildinfo
+
+# OS system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #131313;
+    color: #e5e2e1;
+  }
+
+  body {
+    @apply antialiased min-h-screen overflow-x-hidden;
+    font-family: var(--font-sans), 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), 'Noto Serif', serif;
+  }
+}
+
+/* Custom premium transitions and filters */
+.premium-transition {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Luxury image adjustments - contrast, brightness, saturation */
+.luxury-filter {
+  filter: contrast(1.15) brightness(1.04) saturate(1.18) sepia(0.02);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-filter:hover {
+  filter: contrast(1.22) brightness(1.10) saturate(1.30) sepia(0);
+}
+
+/* Shimmer sweep container */
+.shimmer-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(233, 193, 118, 0) 0%,
+    rgba(233, 193, 118, 0.25) 50%,
+    rgba(233, 193, 118, 0) 100%
+  );
+  transform: skewX(-25deg);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.shimmer-container:hover::after {
+  animation: shimmerSweep 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
