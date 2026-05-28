@@ -154,31 +154,26 @@ function Lightbox({ images, titles, categories, startIndex, onClose }: LightboxP
   );
 }
 
-// ─── Slider Component variants ───────────────────────────────────────────────
+// ─── Slider Component variants (High Performance GPU Tweens) ───────────────
 const slideVariants = {
   enter: (direction: number) => ({
     x: direction > 0 ? "100%" : "-100%",
     opacity: 0,
-    scale: 0.98,
   }),
   center: {
     x: 0,
     opacity: 1,
-    scale: 1,
     transition: {
-      x: { type: "spring", stiffness: 300, damping: 30 },
-      opacity: { duration: 0.35 },
-      scale: { duration: 0.4 },
+      x: { type: "tween", ease: [0.16, 1, 0.3, 1], duration: 0.5 },
+      opacity: { duration: 0.3 }
     }
   },
   exit: (direction: number) => ({
     x: direction < 0 ? "100%" : "-100%",
     opacity: 0,
-    scale: 0.98,
     transition: {
-      x: { type: "spring", stiffness: 300, damping: 30 },
-      opacity: { duration: 0.3 },
-      scale: { duration: 0.3 },
+      x: { type: "tween", ease: [0.16, 1, 0.3, 1], duration: 0.5 },
+      opacity: { duration: 0.25 }
     }
   })
 };
@@ -269,8 +264,7 @@ function Slider({ slides }: SliderProps) {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover/slide:scale-[1.03] group-hover/slide:brightness-[1.08]"
-                  style={{ filter: "contrast(1.14) brightness(1.03) saturate(1.18) sepia(0.06)" }}
+                  className="w-full h-full object-cover luxury-filter md:transition-all md:duration-700 md:group-hover/slide:scale-[1.03] md:group-hover/slide:brightness-[1.08]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent z-0 hidden sm:block" />
               </div>

@@ -43,32 +43,31 @@ export default function Navbar() {
 
   const dropdownVariants = {
     closed: {
-      height: 0,
       opacity: 0,
+      y: -10,
       transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-        staggerChildren: 0.04,
+        duration: 0.2,
+        ease: "easeInOut",
+        staggerChildren: 0.03,
         staggerDirection: -1,
       }
     },
     opened: {
-      height: "auto",
       opacity: 1,
+      y: 0,
       transition: {
         type: "spring",
-        stiffness: 400,
-        damping: 35,
-        staggerChildren: 0.06,
+        stiffness: 300,
+        damping: 25,
+        staggerChildren: 0.05,
         delayChildren: 0.05,
       }
     }
   };
 
   const linkVariants = {
-    closed: { opacity: 0, x: -15 },
-    opened: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 300, damping: 25 } }
+    closed: { opacity: 0, x: -10 },
+    opened: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 250, damping: 22 } }
   };
 
   return (

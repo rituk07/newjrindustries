@@ -27,11 +27,15 @@
 /* Luxury image adjustments - contrast, brightness, saturation */
 .luxury-filter {
   filter: contrast(1.15) brightness(1.04) saturate(1.18) sepia(0.02);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.luxury-filter:hover {
-  filter: contrast(1.22) brightness(1.10) saturate(1.30) sepia(0);
+@media (min-width: 768px) {
+  .luxury-filter {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .luxury-filter:hover {
+    filter: contrast(1.22) brightness(1.10) saturate(1.30) sepia(0);
+  }
 }
 
 /* Shimmer sweep container */
